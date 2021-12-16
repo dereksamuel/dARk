@@ -31,7 +31,9 @@ const constrains = {
 // }
 
 window.addEventListener("deviceorientation", function(event) {
-  alert("the angle of the device is now " , event.alpha, event.beta, event.gamma);
+  if (event.absolute) {
+    alert("the angle of the device is now " , event.alpha, event.beta, event.gamma);
+  } else {this.alert("No absolute")}
 });
 
 function initDARK() {
