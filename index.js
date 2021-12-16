@@ -19,9 +19,7 @@ const controls = new OrbitControls(camera, renderer.domElement);
 const constrains = {
   audio: true,
   video: {
-    facingMode: {
-      exact: "environment"
-    }
+    facingMode: "user"
   }
 };
 // {
@@ -30,11 +28,17 @@ const constrains = {
 //   }
 // }
 
-window.addEventListener("deviceorientation", function(event) {
-  if (event.absolute) {
-    alert("the angle of the device is now " , event.alpha, event.beta, event.gamma);
-  } else {this.alert("No absolute")}
-}, true);
+if (window.DeviceOrientationEvent) {
+  window.addEventListener('deviceorientation', function(event) {
+      var a = event.alpha,
+          b = event.beta,
+          g = event.gamma;
+      console.log(event);
+      alert('Orientation - Alpha: ' + a + ', Beta: '+ b + ', Gamma: ' + g);
+  }, false);
+} else {
+  console.log('This device does not support deviceorientation');
+}
 
 function initDARK() {
   const texture = new THREE.VideoTexture($camera);
