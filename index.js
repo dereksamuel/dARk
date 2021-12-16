@@ -19,10 +19,10 @@ const constrains = {
 //   }
 // }
 
-function initARK() {
-  ctx.drawImage($camera, 0, 0, $root.width, $root.height);
+function initDARK() {
+  ctx.drawImage($camera, 0, 0);
 
-  requestAnimationFrame(initARK);
+  setTimeout(initDARK, 1000 / 50);
 }
 
 navigator.mediaDevices.getUserMedia(constrains)
@@ -31,7 +31,9 @@ navigator.mediaDevices.getUserMedia(constrains)
     $camera.play();
 
     $camera.onloadedmetadata = () => {
-      initARK();
+      $root.width = $camera.videoWidth;
+      $root.height = $camera.videoHeight;
+      initDARK();
     };
   })
   .catch((error) => {
