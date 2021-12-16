@@ -30,7 +30,7 @@ const constrains = {
 //   }
 // }
 
-window.addEventListener("orientationchange", function() {
+window.addEventListener("deviceorientation", function() {
   alert("the orientation of the device is now " + screen.orientation.angle);
 });
 
