@@ -2,9 +2,7 @@ const $camera = document.getElementById("camera");
 
 const constrains = {
   video: {
-    facingMode: {
-      exact: "environment",
-    },
+    facingMode: "user"
   }
 };
 
