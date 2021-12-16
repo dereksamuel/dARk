@@ -30,8 +30,8 @@ const constrains = {
 //   }
 // }
 
-window.addEventListener("deviceorientation", function() {
-  alert("the orientation of the device is now " + screen.orientation.angle);
+window.addEventListener("deviceorientation", function(event) {
+  alert("the angle of the device is now " , event.alpha, event.beta, event.gamma);
 });
 
 function initDARK() {
