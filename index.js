@@ -28,6 +28,10 @@ const constrains = {
 //   }
 // }
 
+window.addEventListener("orientationchange", function() {
+  alert("the orientation of the device is now " + screen.orientation.angle);
+});
+
 function initDARK() {
   const texture = new THREE.VideoTexture($camera);
 
