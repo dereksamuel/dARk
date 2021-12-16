@@ -1,6 +1,7 @@
 const $camera = document.getElementById("camera");
 
 const constrains = {
+  audio: true,
   video: {
     facingMode: {
       exact: "environment"
