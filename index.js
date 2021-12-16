@@ -1,14 +1,12 @@
 const $camera = document.getElementById("camera");
 
 const constrains = {
-  video: true,
+  video: {
+    facingMode: {
+      exact: "environment",
+    },
+  }
 };
-
-// {
-//   facingMode: {
-//     exact: "environment",
-//   },
-// }
 
 navigator.mediaDevices.getUserMedia(constrains)
   .then((stream) => {
