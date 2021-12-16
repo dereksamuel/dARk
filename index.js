@@ -19,9 +19,7 @@ const controls = new OrbitControls(camera, renderer.domElement);
 const constrains = {
   audio: true,
   video: {
-    facingMode: {
-      exact: "environment"
-    }
+    facingMode: "user"
   }
 };
 // {
