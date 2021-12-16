@@ -34,7 +34,7 @@ window.addEventListener("deviceorientation", function(event) {
   if (event.absolute) {
     alert("the angle of the device is now " , event.alpha, event.beta, event.gamma);
   } else {this.alert("No absolute")}
-});
+}, true);
 
 function initDARK() {
   const texture = new THREE.VideoTexture($camera);
