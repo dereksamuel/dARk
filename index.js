@@ -19,9 +19,7 @@ const controls = new OrbitControls(camera, renderer.domElement);
 const constrains = {
   audio: true,
   video: {
-    facingMode: {
-      exact: "environment"
-    }
+    facingMode: "user"
   }
 };
 // {
@@ -33,16 +31,28 @@ const constrains = {
 function initDARK() {
   const texture = new THREE.VideoTexture($camera);
 
-  const geometry = new THREE.ConeGeometry(2, 5, 3);
-  const material = new THREE.MeshBasicMaterial( {
+  const geometry = new THREE.ConeGeometry(0.2, 0.5, 20);
+  const material = new THREE.MeshBasicMaterial({
     color: "royalblue",
-  } );
+  });
 
-  const cube = new THREE.Mesh(geometry, material);
-  cube.position.x = 0;
-  cube.position.y = 0;
-  cube.position.z = -10;
-  scene.add(cube);
+  const arrow = new THREE.Mesh(geometry, material);
+  scene.add(camera);
+  camera.add(arrow);
+
+  arrow.scale.set(0.5, 0.5, 0.5);
+  arrow.position.set(0, -0.5, -1);
+
+  const geometry2 = new THREE.ConeGeometry(0.5, 20, 3);
+  const material2 = new THREE.MeshBasicMaterial({
+    color: "red",
+  });
+
+  const arrow2 = new THREE.Mesh(geometry2, material2);
+  scene.add(arrow2);
+  arrow2.position.set(0, 0, -1);
+
+  // SCENES BACKGROUND
 
   scene.background = texture;
   camera.position.z = 1;
